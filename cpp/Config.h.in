@@ -1,0 +1,2 @@
+#define websocket_cpp_VERSION_MAJOR @websocket_cpp_VERSION_MAJOR@
+#define websocket_cpp_VERSION_MINOR @websocket_cpp_VERSION_MINOR@
