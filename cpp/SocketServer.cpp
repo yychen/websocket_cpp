@@ -124,7 +124,7 @@ void SocketServer::start()
 
     if (m_listen_socket == -1)
     {
-        printf("Error at socket(): %ld\n", errno);
+        printf("Error at socket(): %d\n", errno);
     }
 
     bzero(&service, sizeof(service));
@@ -134,14 +134,14 @@ void SocketServer::start()
 
     if (bind(m_listen_socket, (struct sockaddr *)&service, sizeof(service)) == -1)
     {
-        printf("bind() failed: %ld.\n", errno);
+        printf("bind() failed: %d.\n", errno);
         ::close(m_listen_socket);
         return;
     }
 
     if (listen(m_listen_socket, 1) == -1)
     {
-        printf("listen() failed: %ld.\n", errno);
+        printf("listen() failed: %d.\n", errno);
         ::close(m_listen_socket);
         return;
     }
@@ -316,7 +316,7 @@ void SocketServer::handshake()
 #ifdef WIN32
         printf("recv() error: %ld.\n", WSAGetLastError());
 #else
-        printf("recv() error: %ld.\n", errno);
+        printf("recv() error: %d.\n", errno);
 #endif
         return;
     }
